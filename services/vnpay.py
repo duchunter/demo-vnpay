@@ -1,8 +1,9 @@
 import hashlib
 from urllib.parse import quote
 
+DEBUG = False
 
-VNPAY_RETURN_URL = 'http://localhost:5000/payment_return'
+VNPAY_RETURN_URL = 'http://localhost:5000/payment_return' if DEBUG else 'https://duchm-gateway.herokuapp.com/payment_return'
 VNPAY_PAYMENT_URL = 'http://sandbox.vnpayment.vn/paymentv2/vpcpay.html'
 VNPAY_API_URL = 'http://sandbox.vnpayment.vn/merchant_webapi/merchant.html'
 VNPAY_TMN_CODE = '1SNJ89L8'
@@ -16,11 +17,6 @@ class VNPay:
         'vnp_ReturnUrl': VNPAY_RETURN_URL
     }
     responseData = dict()
-
-    def __init__(self, host=None):
-        if host and not host.startswith('localhost'):
-            self.requestData['vnp_ReturnUrl'] = f'{host}/payment_return'
-
 
     def get_payment_url(self):
         vnpay_payment_url = VNPAY_PAYMENT_URL
