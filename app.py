@@ -25,7 +25,7 @@ def payment():
         bank_code = form['bank_code']
         language = form['language']
         ipaddr = request.remote_addr
-        vnp = VNPay(request.host)
+        vnp = VNPay()
         vnp.requestData['vnp_Command'] = 'pay'
         vnp.requestData['vnp_Amount'] = int(amount) * 100
         vnp.requestData['vnp_CurrCode'] = 'VND'
@@ -46,7 +46,7 @@ def payment():
 
 @app.route('/payment_return')
 def payment_return():
-    vnp = VNPay(request.host)
+    vnp = VNPay()
     inputData = request.args.copy()
     if inputData:
         vnp.responseData = inputData
