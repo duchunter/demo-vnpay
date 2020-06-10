@@ -1,19 +1,16 @@
-<html>
-
-<head>
-    <title>Control Robot</title>
-    <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/socket.io.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</head>
-
-<body>
-  <input type="button" value="Forward" id="forward">
-  <input type="button" value="Backward" id="backward">
-  <input type="button" value="Left" id="left">
-  <input type="button" value="Right" id="right">
-  <input type="button" value="Up" id="up">
-  <input type="button" value="Down" id="down">
-</body>
-
-</html>
+{% extends "base_layout.html" %}
+{% block content %}
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">{{ title }}</div>
+        <div class="table-responsive">
+            <ul class="list-group">
+                <i class="list-group-item"><a href="/payment">Demo Thanh toán</a></i>
+                <i class="list-group-item"><a href="/query">Demo Query (Kiểm tra kết quả Giao dịch tại
+                    VNPAY)</a></i>
+                <i class="list-group-item"><a href="/refund">Demo Refund (Gửi yêu cầu hoàn tiền cho giao
+                    dịch)</a></i>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

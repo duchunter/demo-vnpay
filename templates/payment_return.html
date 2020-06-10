@@ -1,0 +1,20 @@
+{% extends "base_layout.html" %}
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ data.title }}: {{ data.result }}</div>
+        <div class="panel-body">
+            <p>order_id:{{ data.order_id }}</p>
+            <p>amount:{{ data.amount }}</p>
+            <p>order_desc:{{ data.order_desc }}</p>
+            <p>vnp_TransactionNo:{{ data.vnp_TransactionNo }}</p>
+            {% if data.vnp_ResponseCode == '00' %}
+                <p>vnp_ResponseCode: {{ data.vnp_ResponseCode }} - Thành công</p>
+            {% else %}
+                <p>vnp_ResponseCode: {{ data.vnp_ResponseCode }} - Lỗi</p>
+            {% endif %}
+            {% if data.msg %}
+                <p class="alert-warning"> {{ data.msg }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
