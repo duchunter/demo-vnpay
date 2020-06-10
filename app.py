@@ -1,3 +1,5 @@
+import urllib
+
 from datetime import datetime
 from flask import Flask, render_template, request, redirect
 from services.vnpay import VNPay
@@ -23,7 +25,7 @@ def payment():
         bank_code = form['bank_code']
         language = form['language']
         ipaddr = request.remote_addr
-        vnp = VNPay()
+        vnp = VNPay(request.host)
         vnp.requestData['vnp_Command'] = 'pay'
         vnp.requestData['vnp_Amount'] = int(amount) * 100
         vnp.requestData['vnp_CurrCode'] = 'VND'
@@ -44,7 +46,7 @@ def payment():
 
 @app.route('/payment_return')
 def payment_return():
-    vnp = VNPay()
+    vnp = VNPay(request.host)
     inputData = request.args.copy()
     if inputData:
         vnp.responseData = inputData
@@ -77,15 +79,6 @@ def payment_return():
             return render_template("payment_return.html", data=data)
     else:
         return render_template("payment_return.html", data={"title": "Kết quả thanh toán", "result": ""})
-
-# @app.route('/query')
-# def query():
-#     return render_template('index.html')
-#
-#
-# @app.route('/refund')
-# def payment_return():
-#     return render_template('index.html')
 
 
 if __name__ == '__main__':

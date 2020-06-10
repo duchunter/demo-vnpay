@@ -17,6 +17,11 @@ class VNPay:
     }
     responseData = dict()
 
+    def __init__(self, host=None):
+        if host and not host.startswith('localhost'):
+            self.requestData['vnp_ReturnUrl'] = f'{host}/payment_return'
+
+
     def get_payment_url(self):
         vnpay_payment_url = VNPAY_PAYMENT_URL
         secret_key = VNPAY_HASH_SECRET_KEY
