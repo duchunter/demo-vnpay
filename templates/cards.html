@@ -1,0 +1,66 @@
+{% extends "base_layout.html" %}
+{% block content %}
+    <h3>{{ data.title }}</h3>
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+            <th>#</th>      
+            <th>Thông tin thẻ</th>
+            <th>Ghi chú</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>1</td>       
+            <td>       
+                <div>Ngân hàng: <code>NCB</code></div>
+                <div>Số thẻ:  <code>9704198526191432198</code></div>
+                <div>Tên chủ thẻ:<code>NGUYEN VAN A</code></div>
+                <div>Ngày phát hành:<code>07/15</code></div>
+                <div>Mật khẩu OTP:<code>123456</code></div>        
+            </td>
+            <td>Thành công</td>
+            </tr>    
+            <tr>
+            <td>2</td>       
+            <td>       
+                <div>Ngân hàng: <code>NCB</code></div>
+                <div>Số thẻ:  <code>9704195798459170488</code></div>
+                <div>Tên chủ thẻ:<code>NGUYEN VAN A</code></div>
+                <div>Ngày phát hành:<code>07/15</code></div>              
+            </td>
+            <td>Thẻ không đủ số dư</td>
+            </tr>
+            <tr>
+            <td>3</td>       
+            <td>       
+                <div>Ngân hàng: <code>NCB</code></div>
+                <div>Số thẻ:  <code>9704192181368742</code></div>
+                <div>Tên chủ thẻ:<code>NGUYEN VAN A</code></div>
+                <div>Ngày phát hành:<code>07/15</code></div>              
+            </td>
+            <td>Thẻ chưa kích hoạt</td>
+            </tr>
+            <tr>
+            <td>4</td>       
+            <td>       
+                <div>Ngân hàng: <code>NCB</code></div>
+                <div>Số thẻ:  <code>9704193370791314</code></div>
+                <div>Tên chủ thẻ:<code>NGUYEN VAN A</code></div>
+                <div>Ngày phát hành:<code>07/15</code></div>                
+            </td>
+            <td>Thẻ bị khóa</td>
+            </tr>    
+            <tr>
+            <td>5</td>       
+            <td>       
+                <div>Ngân hàng: <code>NCB</code></div>
+                <div>Số thẻ:  <code>9704194841945513</code></div>
+                <div>Tên chủ thẻ:<code>NGUYEN VAN A</code></div>
+                <div>Ngày phát hành:<code>07/15</code></div>                
+            </td>
+            <td>Thẻ bị hết hạn</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

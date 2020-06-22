@@ -1,5 +1,6 @@
 import urllib
 
+from uuid import uuid1
 from datetime import datetime
 from flask import Flask, render_template, request, redirect
 from services.vnpay import VNPay
@@ -12,6 +13,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html', data={"title": "Danh sách demo"})
+
+
+@app.route('/cards')
+def cards():
+    return render_template('cards.html', data={"title": "Danh sách thẻ test"})
 
 
 @app.route('/payment', methods=['GET', 'POST'])
@@ -41,7 +47,7 @@ def payment():
         print(vnpay_payment_url)
         return redirect(vnpay_payment_url)
     else:
-        return render_template("payment.html", data={"title": "Thanh toán"})
+        return render_template("payment.html", data={"title": "Thanh toán", "order_id": uuid1()})
 
 
 @app.route('/payment_return')
