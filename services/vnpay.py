@@ -6,8 +6,8 @@ DEBUG = False
 VNPAY_RETURN_URL = 'http://localhost:5000/payment_return' if DEBUG else 'https://duchm-gateway.herokuapp.com/payment_return'
 VNPAY_PAYMENT_URL = 'http://sandbox.vnpayment.vn/paymentv2/vpcpay.html'
 VNPAY_API_URL = 'http://sandbox.vnpayment.vn/merchant_webapi/merchant.html'
-VNPAY_TMN_CODE = '1SNJ89L8'
-VNPAY_HASH_SECRET_KEY = 'ODJLXOCEWMFIEJXHJNMZUVFFVRDDXLOT'
+VNPAY_TMN_CODE = '7RQR4526'
+VNPAY_HASH_SECRET_KEY = 'WCKRALMDATUHNJMMLMKKWJHYYWYYDMVT'
 
 
 class VNPay:
